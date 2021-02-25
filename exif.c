@@ -424,7 +424,7 @@ postprop(struct exifprop *prop, struct exiftags *t)
 static void
 tweaklvl(struct exifprop *prop, struct exiftags *t)
 {
-	char *c;
+	unsigned char *c;
 	struct exifprop *tmpprop;
 
 	/* Change any ASCII properties to verbose if they're empty. */
@@ -452,8 +452,10 @@ tweaklvl(struct exifprop *prop, struct exiftags *t)
 				*c = '_';
 			c++;
 		}
-
-		c = prop->str + strlen(prop->str);
+		int len = strlen(prop->str);
+		if (len > prop->count)
+			len = prop->count;
+		c = prop->str + len;
 		while (c > prop->str && isspace((int)*(c - 1))) --c;
 		*c = '\0';
 	}

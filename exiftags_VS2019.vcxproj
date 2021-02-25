@@ -22,7 +22,6 @@
     <SccProjectName />
     <SccLocalPath />
     <ProjectGuid>{9042DB50-C050-4FB4-9585-45C4539BC63E}</ProjectGuid>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
     <ProjectName>exiftags</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

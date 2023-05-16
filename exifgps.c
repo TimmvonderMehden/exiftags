@@ -320,6 +320,7 @@ gpsprop(struct exifprop *prop, struct exiftags *t)
 		if (!n || !d) {			/* Assume no seconds. */
 			snprintf(prop->str, 31, fmt, tmpprop && tmpprop->str ?
 			    tmpprop->str : "", deg, DEGREE, min);
+			prop->str[31] = '\0';
 			break;
 		} else {
 			sec = (double)n / (double)d;
@@ -331,6 +332,7 @@ gpsprop(struct exifprop *prop, struct exiftags *t)
 		}
 		snprintf(prop->str, 31, fmt, tmpprop && tmpprop->str ?
 		    tmpprop->str : "", deg, DEGREE, min, sec);
+		prop->str[31] = '\0';
 		break;
 
 	/* Altitude. */
@@ -375,6 +377,7 @@ gpsprop(struct exifprop *prop, struct exiftags *t)
 				    (int)log10((double)d));
 
 			snprintf(buf, 8, fmt, (double)n / (double)d);
+			buf[9] = 0;
 			strcat(prop->str, buf);
 		}
 		break;
